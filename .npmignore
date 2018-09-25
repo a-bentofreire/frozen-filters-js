@@ -1,0 +1,8 @@
+node_modules
+test
+*.ts
+*.js.map
+ts*.json
+.*
+.git
+.vscode

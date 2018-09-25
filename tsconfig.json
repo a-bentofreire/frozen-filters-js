@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "target": "es5",
+    "module": "commonjs",
+    "preserveConstEnums": false,
+    "sourceMap": true,
+    "newLine": "LF",
+    "noEmitOnError": false,
+    "lib": [
+      "es6",
+      "dom"
+    ],
+  },
+  "exclude": [
+    "www/",
+    "blog-src/",
+    "gallery/",
+    "release/",
+    "docs/",
+    "node_modules/",
+    "private/"
+
+  ]
+}
