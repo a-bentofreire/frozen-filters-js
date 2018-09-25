@@ -9,14 +9,16 @@
 import * as sysFs from "fs";
 import { assert } from "chai";
 
-import { frozenTags } from "../frozen-filters-js";
+// import * as frozenTags from "../frozen-filters-js";
 
 const Liquid = require("liquidjs");
+const frozenFilters = require("../frozen-filters-js").filters;
 
 function tests() {
 
   const engine = Liquid();
-  frozenTags.registerFilters(engine);
+
+  frozenFilters.registerFilters(engine);
 
   const cfg = JSON.parse(sysFs.readFileSync('./test/config.json', { encoding: 'utf-8' }));
 

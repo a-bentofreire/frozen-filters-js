@@ -8,7 +8,7 @@ frozen-filters-js provides a list of helpful filters for [liquidjs](https://gith
 ## Usage
 ```js
 var liquid = require("liquidjs");
-var frozenFilters = require("frozen-filters-js");
+var frozenFilters = require("frozen-filters-js").filters;
 
 var engine = liquid();
 frozenFilters.registerFilters(engine);

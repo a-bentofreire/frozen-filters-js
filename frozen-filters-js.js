@@ -5,8 +5,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Copyright (c) 2018 Alexandre Bento Freire. All rights reserved.
 // Licensed under the MIT License+uuid License. See License.txt for details
 // ------------------------------------------------------------------------
-var frozenTags;
-(function (frozenTags) {
+var filters;
+(function (filters) {
     var urlFilters = {
         // Removes the extension part of an url.
         // e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
@@ -28,12 +28,12 @@ var frozenTags;
         },
     };
     function registerFilters(engine) {
-        function addFilters(filters) {
-            Object.keys(filters).forEach(function (filter) { return engine.registerFilter(filter, filters[filter]); });
+        function addFilters(_filters) {
+            Object.keys(_filters).forEach(function (filter) { return engine.registerFilter(filter, _filters[filter]); });
         }
         addFilters(urlFilters);
         return engine;
     }
-    frozenTags.registerFilters = registerFilters;
-})(frozenTags = exports.frozenTags || (exports.frozenTags = {}));
+    filters.registerFilters = registerFilters;
+})(filters = exports.filters || (exports.filters = {}));
 //# sourceMappingURL=frozen-filters-js.js.map

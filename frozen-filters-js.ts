@@ -6,7 +6,7 @@
 // Licensed under the MIT License+uuid License. See License.txt for details
 // ------------------------------------------------------------------------
 
-export namespace frozenTags {
+export namespace filters {
 
   interface Filters { [key: string]: (input) => string; }
 
@@ -36,8 +36,8 @@ export namespace frozenTags {
   };
 
   export function registerFilters(engine): any {
-    function addFilters(filters: Filters): void {
-      Object.keys(filters).forEach(filter => engine.registerFilter(filter, filters[filter]));
+    function addFilters(_filters: Filters): void {
+      Object.keys(_filters).forEach(filter => engine.registerFilter(filter, _filters[filter]));
     }
     addFilters(urlFilters);
     return engine;

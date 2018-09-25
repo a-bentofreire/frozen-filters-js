@@ -7,11 +7,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // ------------------------------------------------------------------------
 var sysFs = require("fs");
 var chai_1 = require("chai");
-var frozen_filters_js_1 = require("../frozen-filters-js");
+// import * as frozenTags from "../frozen-filters-js";
 var Liquid = require("liquidjs");
+var frozenFilters = require("../frozen-filters-js").filters;
 function tests() {
     var engine = Liquid();
-    frozen_filters_js_1.frozenTags.registerFilters(engine);
+    frozenFilters.registerFilters(engine);
     var cfg = JSON.parse(sysFs.readFileSync('./test/config.json', { encoding: 'utf-8' }));
     var vars = cfg.vars;
     Object.keys(cfg.tests).forEach(function (groupName) {
