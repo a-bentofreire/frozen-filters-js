@@ -34,15 +34,17 @@ function tests() {
         // tslint:disable-next-line:only-arrow-functions
         describe(testName, function () {
           test.forEach(caseObj => {
-            // tslint:disable-next-line:only-arrow-functions
-            it(`${caseObj.src}=${caseObj.result}`, function () {
-              engine
-                .parseAndRender(caseObj.src, vars)
-                .then((result) => {
-                  console.log(result);
-                  assert.equal(result, caseObj.result);
-                });
-            });
+            if (caseObj.enabled !== false) {
+              // tslint:disable-next-line:only-arrow-functions
+              it(`${caseObj.src}=${caseObj.result}`, function () {
+                engine
+                  .parseAndRender(caseObj.src, vars)
+                  .then((result) => {
+                    console.log(result);
+                    assert.equal(result, caseObj.result);
+                  });
+              });
+            }
           });
         });
       });

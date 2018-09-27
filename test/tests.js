@@ -24,15 +24,17 @@ function tests() {
                 // tslint:disable-next-line:only-arrow-functions
                 describe(testName, function () {
                     test.forEach(function (caseObj) {
-                        // tslint:disable-next-line:only-arrow-functions
-                        it(caseObj.src + "=" + caseObj.result, function () {
-                            engine
-                                .parseAndRender(caseObj.src, vars)
-                                .then(function (result) {
-                                console.log(result);
-                                chai_1.assert.equal(result, caseObj.result);
+                        if (caseObj.enabled !== false) {
+                            // tslint:disable-next-line:only-arrow-functions
+                            it(caseObj.src + "=" + caseObj.result, function () {
+                                engine
+                                    .parseAndRender(caseObj.src, vars)
+                                    .then(function (result) {
+                                    console.log(result);
+                                    chai_1.assert.equal(result, caseObj.result);
+                                });
                             });
-                        });
+                        }
                     });
                 });
             });
