@@ -11,7 +11,9 @@
     "httpUrl": "http://www.foo.com/first/second/index.html",
     "httpUrlLPP": "https://username:password@example.com:8080/first/second/index.html",
     "httpUrlWithQs": "http://www.foo.com/first/second/index.html?param1=value1&param2=value2",
-    "zhHttpUrlWithQs": "http://吃.高雄/第一/第二/首頁.html?param1=value1&param2=value2"
+    "httpUrlNoPathQs": "http://www.foo.com/index.html?param1=value1&param2=value2",
+    "zhHttpUrlWithQs": "http://吃.高雄/第一/第二/首頁.html?param1=value1&param2=value2",
+    "markerHttpUrlWithQs": "https://xn--jp-cd2fp15c.xn--fsq.jp/%E5%BC%95%E3%81%8D%E5%89%B2%E3%82%8A.html?param1=value1&param2=value2"
   },
 
   "tests": {
@@ -57,8 +59,16 @@
           "result": "index.html"
         },
         {
+          "src": "{{ httpUrlNoPathQs | extract_basename }}",
+          "result": "index.html"
+        },
+        {
           "src": "{{ zhHttpUrlWithQs | extract_basename }}",
           "result": "首頁.html"
+        },
+        {
+          "src": "{{ markerHttpUrlWithQs | extract_basename }}",
+          "result": "%E5%BC%95%E3%81%8D%E5%89%B2%E3%82%8A.html"
         }
       ],
 
@@ -77,6 +87,14 @@
         {
           "src": "{{ zhHttpUrlWithQs | extract_dirname }}",
           "result": "/第一/第二"
+        },
+        {
+          "src": "{{ httpUrlNoPathQs | extract_dirname }}",
+          "result": "/"
+        },
+        {
+          "src": "{{ markerHttpUrlWithQs | extract_dirname }}",
+          "result": "/"
         }
       ],
 
