@@ -1,5 +1,6 @@
 ## Description
-[![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)  
+[![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)
+[![Build Status](https://travis-ci.org/a-bentofreire/frozen-filters-js.svg?branch=master)](https://travis-ci.org/a-bentofreire/frozen-filters-js)  
   
 Filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.  
 These filters are also available as a [ruby gem](https://rubygems.org/gems/frozen-filters).
