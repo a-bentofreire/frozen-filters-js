@@ -1,7 +1,8 @@
 ## Description
 [![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)  
   
-Filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.
+Filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.  
+These filters are also available as a [ruby gem](https://rubygems.org/gems/frozen-filters).
 
 ## Installation
 `npm i frozen-filter-js`  
@@ -27,6 +28,7 @@ engine
 ```
 
 ## Filters
+### Url Filters
   
 - `remove_ext` - Removes the extension part of an url.   
 e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
@@ -37,7 +39,26 @@ e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
 - `extract_path` - Returns the path of an url. e.g. `/first/second/index.html`.
 - `extract_protocol` - Returns the protocol. e.g. `http`.
 - `extract_qs` - Returns the query string. e.g. `param1=value1&param2=value2`.
-
+  
+### Array Filters
+  
+- `array_head` - Returns the first `N` elements of an array.  
+ e.g. `{{ ["first","second","third"] | array_head: 2 }}` =~ `["first","second"]`.  
+ If the number of parameters is negative it returns an empty array.  
+ The the input isn't an array it returns the untouched input.  
+  
+- `array_tail` - Returns the last `N` elements of an array.  
+ e.g. `{{ ["first","second","third"] | array_tail: 2 }}` =~ `["first","second"]`.  
+ If the number of parameters is negative it returns an empty array.  
+ The the input isn't an array it returns the untouched input.  
+- `array_to_taglist` - Transforms an array into an enclosed html tag list separated by newline.  
+ e.g. `{{ ["first","second" | array_to_taglist: "li" }}`  returns:  
+```html
+<li>first</li>
+<li>second</li>
+```
+  
+The the input isn't an array it returns the untouched input.
   
 ## Internationalization
   

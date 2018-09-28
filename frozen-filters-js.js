@@ -32,11 +32,38 @@ var filters;
         // Returns the query string part. e.g. `param1=value1&param2=value2`.
         extract_qs: function (input) { return input.replace(/^[^\?]*\??/, ''); },
     };
+    var arrayFilters = {
+        // Returns the first N elements of an array.
+        // e.g. `{{ ["first","second","third"] | array_head: 2 }}` =~ `["first","second"]`.
+        // If the number of parameters is negative it returns an empty array.
+        // The the input isn't an array it returns the untouched input.
+        array_head: function (input, p) {
+            return Array.isArray(input) ? input.slice(0, Math.max(parseInt(p), 0)) : input;
+        },
+        // Returns the last N elements of an array.
+        // e.g. `{{ ["first","second","third"] | array_tail: 2 }}` =~ `["second","third"]`.
+        // If the number of parameters is negative it returns an empty array.
+        // The the input isn't an array it returns the untouched input.
+        array_tail: function (input, p) { return Array.isArray(input)
+            ? input.slice(Math.max(input.length - Math.max(parseInt(p), 0), 0))
+            : input; },
+        // Transforms an array into an enclose html tag list separated by newline.
+        // e.g. `{{ ["first","second" | array_to_taglist: "li" }}` =~
+        // ```html
+        // <li>first</li>
+        // <li>second</li>
+        // ```
+        // The the input isn't an array it returns the untouched input.
+        array_to_taglist: function (input, p) { return Array.isArray(input)
+            ? input.map(function (item) { return "<" + p + ">" + item + "</" + p + ">"; }).join('\n')
+            : input; },
+    };
     function registerFilters(engine) {
         function addFilters(_filters) {
             Object.keys(_filters).forEach(function (filter) { return engine.registerFilter(filter, _filters[filter]); });
         }
         addFilters(urlFilters);
+        addFilters(arrayFilters);
         return engine;
     }
     filters.registerFilters = registerFilters;

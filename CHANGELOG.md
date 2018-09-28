@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 > The version is bumped to 0.3.0 to match frozen-filters gem semver.
 ### Added
 - (DEV) Add support for `enabled:false` in a test case.
-- Add `extract_path` and `extract_qs` filter.
+- Add `extract_path` and `extract_qs` filters.
+- Add `array_head`, `array_tail` and `array_to_taglist` filters.
 
 ### Fixed
 - (DEV) Fix the mocha test result when the test fails.

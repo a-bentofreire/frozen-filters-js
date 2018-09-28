@@ -4,7 +4,8 @@
     "strValue2": "Str_2_value",
     "floatValue": 12.45,
     "negativeValue": -12.45,
-    "arrayValues": ["first", "second", "third"],
+    "arrayValues": ["first", "second", "third", "forth", "fifth", "sixth"],
+    "array2Values": ["first", "second"],
     "arrayValuesWithNull": ["first", "second", null, "third"],
     "textWithSymbols": "Have you read 'James & the Giant Peach'?",
     "localUrl": "/first/second/index.html",
@@ -165,6 +166,57 @@
         }
       ]
 
+    },
+
+    "arrays": {
+      "array_head": [
+        {
+          "src": "{{ arrayValues | array_head: -2 }}",
+          "result": "[]"
+        },
+        {
+          "src": "{{ arrayValues | array_head: 2 }}",
+          "result": "[\"first\",\"second\"]"
+        },
+        {
+          "src": "{{ arrayValues | array_head: 10 }}",
+          "result": "[\"first\",\"second\",\"third\",\"forth\",\"fifth\",\"sixth\"]"
+        },
+        {
+          "src": "{{ floatValue | array_head: 10 }}",
+          "result": "12.45"
+        }
+      ],
+
+      "array_tail": [
+        {
+          "src": "{{ arrayValues | array_tail: -2 }}",
+          "result": "[]"
+        },
+        {
+          "src": "{{ arrayValues | array_tail: 2 }}",
+          "result": "[\"fifth\",\"sixth\"]"
+        },
+        {
+          "src": "{{ arrayValues | array_tail: 10 }}",
+          "result": "[\"first\",\"second\",\"third\",\"forth\",\"fifth\",\"sixth\"]"
+        },
+        {
+          "src": "{{ floatValue | array_tail: 10 }}",
+          "result": "12.45"
+        }
+      ],
+
+      "array_to_taglist": [
+      {
+        "src": "{{ array2Values | array_to_taglist: \"li\" }}",
+        "result": "<li>first</li>\n<li>second</li>"
+      },
+      {
+        "src": "{{ floatValue | array_to_taglist: 10 }}",
+        "result": "12.45"
+      }
+    ]
     }
   }
 }
