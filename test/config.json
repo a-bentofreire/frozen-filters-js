@@ -8,6 +8,7 @@
     "arrayValuesWithNull": ["first", "second", null, "third"],
     "textWithSymbols": "Have you read 'James & the Giant Peach'?",
     "localUrl": "/first/second/index.html",
+    "localRootUrl": "/index.html",
     "httpUrl": "http://www.foo.com/first/second/index.html",
     "httpUrlLPP": "https://username:password@example.com:8080/first/second/index.html",
     "httpUrlWithQs": "http://www.foo.com/first/second/index.html?param1=value1&param2=value2",
@@ -46,8 +47,13 @@
         }
       ],
 
-      "extract_basename": [{
+      "extract_basename": [
+        {
           "src": "{{ localUrl | extract_basename }}",
+          "result": "index.html"
+        },
+        {
+          "src": "{{ localRootUrl | extract_basename }}",
           "result": "index.html"
         },
         {
@@ -72,9 +78,14 @@
         }
       ],
 
-      "extract_dirname": [{
+      "extract_dirname": [
+        {
           "src": "{{ localUrl | extract_dirname }}",
           "result": "/first/second"
+        },
+        {
+          "src": "{{ localRootUrl | extract_dirname }}",
+          "result": "/"
         },
         {
           "src": "{{ httpUrlWithQs | extract_dirname }}",
@@ -95,6 +106,37 @@
         {
           "src": "{{ markerHttpUrlWithQs | extract_dirname }}",
           "result": "/"
+        }
+      ],
+
+      "extract_path": [
+        {
+          "src": "{{ localUrl | extract_path }}",
+          "result": "/first/second/index.html"
+        },
+        {
+          "src": "{{ localRootUrl | extract_path }}",
+          "result": "/index.html"
+        },
+        {
+          "src": "{{ httpUrlWithQs | extract_path }}",
+          "result": "/first/second/index.html"
+        },
+        {
+          "src": "{{ httpUrlLPP | extract_path }}",
+          "result": "/first/second/index.html"
+        },
+        {
+          "src": "{{ zhHttpUrlWithQs | extract_path }}",
+          "result": "/第一/第二/首頁.html"
+        },
+        {
+          "src": "{{ httpUrlNoPathQs | extract_path }}",
+          "result": "/index.html"
+        },
+        {
+          "src": "{{ markerHttpUrlWithQs | extract_path }}",
+          "result": "/%E5%BC%95%E3%81%8D%E5%89%B2%E3%82%8A.html"
         }
       ],
 

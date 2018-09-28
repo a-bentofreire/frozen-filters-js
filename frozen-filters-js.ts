@@ -22,11 +22,17 @@ export namespace filters {
     // Returns the basename of an url. e.g. `index.html`.
     extract_basename: (input) => input.replace(/^.*\/([^\/\?]+).*$/, '$1'),
 
-    // Returns the dirname of an url. e.g. `first/second`.
+    // Returns the dirname of an url. e.g. `/first/second`.
     extract_dirname: (input) =>
       input.match(/^(\w+):/)
         ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)\/.*$/, '$1')
         : input.replace(/\/[^\/]+$/, ''),
+
+    // Returns the path of an url. e.g. `first/second/index.html`.
+    extract_path: (input) =>
+      input.match(/^(\w+):/)
+        ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)(?:\?.*)?$/, '$1')
+        : input.replace(/(?:\?.*)$/, ''),
 
     // Returns the protocol. e.g. `http`.
     extract_protocol: (input) => {
