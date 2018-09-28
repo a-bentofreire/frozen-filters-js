@@ -47,8 +47,7 @@
         }
       ],
 
-      "extract_basename": [
-        {
+      "extract_basename": [{
           "src": "{{ localUrl | extract_basename }}",
           "result": "index.html"
         },
@@ -78,8 +77,7 @@
         }
       ],
 
-      "extract_dirname": [
-        {
+      "extract_dirname": [{
           "src": "{{ localUrl | extract_dirname }}",
           "result": "/first/second"
         },
@@ -109,8 +107,7 @@
         }
       ],
 
-      "extract_path": [
-        {
+      "extract_path": [{
           "src": "{{ localUrl | extract_path }}",
           "result": "/first/second/index.html"
         },
@@ -141,9 +138,32 @@
       ],
 
       "extract_protocol": [{
-        "src": "{{ httpUrl | extract_protocol }}",
-        "result": "http"
-      }]
+          "src": "{{ httpUrl | extract_protocol }}",
+          "result": "http"
+        },
+        {
+          "src": "{{ localUrl | extract_protocol }}",
+          "result": ""
+        }
+      ],
+
+      "extract_qs": [{
+          "src": "{{ httpUrlWithQs | extract_qs }}",
+          "result": "param1=value1&param2=value2"
+        },
+        {
+          "src": "{{ httpUrl | extract_qs }}",
+          "result": ""
+        },
+        {
+          "src": "{{ localUrl | extract_qs }}",
+          "result": ""
+        },
+        {
+          "src": "{{ markerHttpUrlWithQs | extract_qs }}",
+          "result": "param1=value1&param2=value2"
+        }
+      ]
 
     }
   }

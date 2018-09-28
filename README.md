@@ -35,6 +35,8 @@ e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
 - `extract_dirname` - Returns the dirname of an url. e.g. `/first/second`.
 - `extract_path` - Returns the path of an url. e.g. `/first/second/index.html`.
 - `extract_protocol` - Returns the protocol. e.g. `http`.
+- `extract_qs` - Returns the query string. e.g. `param1=value1&param2=value2`.
+
   
 ## Internationalization
   

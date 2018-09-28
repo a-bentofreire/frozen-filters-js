@@ -39,6 +39,9 @@ export namespace filters {
       const matches = input.match(/^(\w+):/);
       return matches ? matches[1] : '';
     },
+
+    // Returns the query string part. e.g. `param1=value1&param2=value2`.
+    extract_qs: (input) => input.replace(/^[^\?]*\??/, ''),
   };
 
   export function registerFilters(engine): any {
