@@ -26,12 +26,13 @@ function tests() {
                     test.forEach(function (caseObj) {
                         if (caseObj.enabled !== false) {
                             // tslint:disable-next-line:only-arrow-functions
-                            it(caseObj.src + "=" + caseObj.result, function () {
+                            it(caseObj.src + "=" + caseObj.result, function (done) {
                                 engine
                                     .parseAndRender(caseObj.src, vars)
                                     .then(function (result) {
                                     console.log(result);
                                     chai_1.assert.equal(result, caseObj.result);
+                                    done();
                                 });
                             });
                         }

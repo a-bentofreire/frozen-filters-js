@@ -36,12 +36,13 @@ function tests() {
           test.forEach(caseObj => {
             if (caseObj.enabled !== false) {
               // tslint:disable-next-line:only-arrow-functions
-              it(`${caseObj.src}=${caseObj.result}`, function () {
+              it(`${caseObj.src}=${caseObj.result}`, function (done) {
                 engine
                   .parseAndRender(caseObj.src, vars)
                   .then((result) => {
                     console.log(result);
                     assert.equal(result, caseObj.result);
+                    done();
                   });
               });
             }

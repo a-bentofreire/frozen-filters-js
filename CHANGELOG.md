@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - (DEV) Add support for `enabled:false` in a test case.
 
+### Fixed
+- (DEV) Fix the mocha test result when the test fails.
 
 ## [0.1.1] -
 ### Fixed
