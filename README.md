@@ -1,6 +1,7 @@
 ## Description
+[![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)  
   
-frozen-filters-js provides a list of helpful filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.
+Filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.
 
 ## Installation
 `npm i frozen-filter-js`  
