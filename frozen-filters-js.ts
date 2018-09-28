@@ -8,6 +8,12 @@
 
 export namespace filters {
 
+  const extractPath = (input: string): string =>
+    input.match(/^(\w+):/)
+      ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)(?:\?.*)?$/, '$1')
+      : input.replace(/(?:\?.*)$/, '');
+
+
   interface Filters { [key: string]: (input) => string; }
 
   const urlFilters: Filters = {
@@ -23,16 +29,10 @@ export namespace filters {
     extract_basename: (input) => input.replace(/^.*\/([^\/\?]+).*$/, '$1'),
 
     // Returns the dirname of an url. e.g. `/first/second`.
-    extract_dirname: (input) =>
-      input.match(/^(\w+):/)
-        ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)\/.*$/, '$1')
-        : input.replace(/\/[^\/]+$/, ''),
+    extract_dirname: (input) => extractPath(input).replace(/\/[^\/]+$/, '') || '/',
 
     // Returns the path of an url. e.g. `first/second/index.html`.
-    extract_path: (input) =>
-      input.match(/^(\w+):/)
-        ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)(?:\?.*)?$/, '$1')
-        : input.replace(/(?:\?.*)$/, ''),
+    extract_path: (input) => extractPath(input),
 
     // Returns the protocol. e.g. `http`.
     extract_protocol: (input) => {

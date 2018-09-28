@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - (DEV) Fix the mocha test result when the test fails.
+- Fix `extract_dirname` when it's only `/index.html`.
 
 
 ## [0.1.1] -

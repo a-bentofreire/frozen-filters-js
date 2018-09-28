@@ -30,7 +30,7 @@ function tests() {
                                 engine
                                     .parseAndRender(caseObj.src, vars)
                                     .then(function (result) {
-                                    console.log(result);
+                                    // console.log(result);
                                     chai_1.assert.equal(result, caseObj.result);
                                     done();
                                 });

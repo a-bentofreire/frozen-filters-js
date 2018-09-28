@@ -26,21 +26,21 @@ function tests() {
 
   Object.keys(cfg.tests).forEach(groupName => {
     // tslint:disable-next-line:only-arrow-functions
-    describe(groupName, function () {
+    describe(groupName, function() {
       const group = cfg.tests[groupName];
 
       Object.keys(group).forEach(testName => {
         const test = group[testName];
         // tslint:disable-next-line:only-arrow-functions
-        describe(testName, function () {
+        describe(testName, function() {
           test.forEach(caseObj => {
             if (caseObj.enabled !== false) {
               // tslint:disable-next-line:only-arrow-functions
-              it(`${caseObj.src}=${caseObj.result}`, function (done) {
+              it(`${caseObj.src}=${caseObj.result}`, function(done) {
                 engine
                   .parseAndRender(caseObj.src, vars)
                   .then((result) => {
-                    console.log(result);
+                    // console.log(result);
                     assert.equal(result, caseObj.result);
                     done();
                   });

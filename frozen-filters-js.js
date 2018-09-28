@@ -7,6 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // ------------------------------------------------------------------------
 var filters;
 (function (filters) {
+    var extractPath = function (input) {
+        return input.match(/^(\w+):/)
+            ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)(?:\?.*)?$/, '$1')
+            : input.replace(/(?:\?.*)$/, '');
+    };
     var urlFilters = {
         // Removes the extension part of an url.
         // e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
@@ -16,17 +21,9 @@ var filters;
         // Returns the basename of an url. e.g. `index.html`.
         extract_basename: function (input) { return input.replace(/^.*\/([^\/\?]+).*$/, '$1'); },
         // Returns the dirname of an url. e.g. `/first/second`.
-        extract_dirname: function (input) {
-            return input.match(/^(\w+):/)
-                ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)\/.*$/, '$1')
-                : input.replace(/\/[^\/]+$/, '');
-        },
+        extract_dirname: function (input) { return extractPath(input).replace(/\/[^\/]+$/, '') || '/'; },
         // Returns the path of an url. e.g. `first/second/index.html`.
-        extract_path: function (input) {
-            return input.match(/^(\w+):/)
-                ? input.replace(/^\w+:[^\/]*\/\/[^\/]+(\/[^\?]+)(?:\?.*)?$/, '$1')
-                : input.replace(/(?:\?.*)$/, '');
-        },
+        extract_path: function (input) { return extractPath(input); },
         // Returns the protocol. e.g. `http`.
         extract_protocol: function (input) {
             var matches = input.match(/^(\w+):/);
