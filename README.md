@@ -1,4 +1,4 @@
-## Description
+# Description
 [![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)
 [![Build Status](https://travis-ci.org/a-bentofreire/frozen-filters-js.svg?branch=master)](https://travis-ci.org/a-bentofreire/frozen-filters-js)  
   
@@ -76,4 +76,4 @@ e.g. `https://xn--jp-cd2fp15c.xn--fsq.jp/abc/index.html?param1=value1&param2=val
   
 ## License
   
-[MIT License+uuid License](https://github.com/a-bentofreire/uuid-licenses/blob/master/MIT-uuid-license.md)  
+MIT License  
