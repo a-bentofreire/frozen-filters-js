@@ -1,9 +1,7 @@
 "use strict";
-// uuid: 8c18aaee-1437-4faf-8122-cdf04abef102
-
 // ------------------------------------------------------------------------
-// Copyright (c) 2018 Alexandre Bento Freire. All rights reserved.
-// Licensed under the MIT License+uuid License. See License.txt for details
+// Copyright (c) 2018-2024 Alexandre Bento Freire. All rights reserved.
+// Licensed under the MIT License.
 // ------------------------------------------------------------------------
 
 export namespace filters {

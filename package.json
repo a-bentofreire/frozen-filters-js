@@ -1,6 +1,6 @@
 {
   "name": "frozen-filters-js",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Filters for liquidjs template engine",
   "publisher": "a-bentofreire",
   "keywords": [
@@ -16,10 +16,11 @@
     "email": "devpieces@a-bentofreire.com",
     "url": "https://github.com/a-bentofreire"
   },
-  "license": "MIT+uuid",
+  "license": "MIT",
   "engines": {
     "node": "*"
   },
+  "homepage": "https://devpieces.a-bentofreire.com/projects/frozen-filters-js",
   "bugs": "https://github.com/a-bentofreire/frozen-filters-js/issues",
   "repository": {
     "type": "git",
