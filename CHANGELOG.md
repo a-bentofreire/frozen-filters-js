@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.3.3] -
+### Updated
+- Update links
+
 ## [0.3.2]
 ### Changed
 - Changed License to MIT
@@ -20,11 +24,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - (DEV) Fix the mocha test result when the test fails.
 - Fix `extract_dirname` when it's only `/index.html`.
 
-
 ## [0.1.1] -
 ### Fixed
 - Fix the usage on README and change the namesace to filters.
-
 
 ## [0.1.0] -
 ### Added

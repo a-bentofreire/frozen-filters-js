@@ -1,6 +1,5 @@
 # Description
 [![npm version](https://badge.fury.io/js/frozen-filters-js.svg)](https://badge.fury.io/js/frozen-filters-js)
-[![Build Status](https://travis-ci.org/a-bentofreire/frozen-filters-js.svg?branch=master)](https://travis-ci.org/a-bentofreire/frozen-filters-js)  
   
 Filters for [liquidjs](https://github.com/harttle/liquidjs) template engine.  
 These filters are also available as a [ruby gem](https://rubygems.org/gems/frozen-filters).
@@ -9,6 +8,7 @@ These filters are also available as a [ruby gem](https://rubygems.org/gems/froze
 `npm i frozen-filter-js`  
 
 ## Usage
+
 ```js
 var liquid = require("liquidjs");
 var frozenFilters = require("frozen-filters-js").filters;
@@ -54,6 +54,7 @@ e.g. `http://www.example.com/first/second/index?param1=value1&param2=value2`.
  The the input isn't an array it returns the untouched input.  
 - `array_to_taglist` - Transforms an array into an enclosed html tag list separated by newline.  
  e.g. `{{ ["first","second" | array_to_taglist: "li" }}`  returns:  
+
 ```html
 <li>first</li>
 <li>second</li>
@@ -69,11 +70,10 @@ e.g. `http://吃.高雄/第一/第二/首頁.html?param1=value1&param2=value2`.
 - punycodes:  
 e.g. `https://xn--jp-cd2fp15c.xn--fsq.jp/abc/index.html?param1=value1&param2=value2`.  
   
-## Copyrights
-  
-© 2018 [Alexandre Bento Freire](https://www.a-bentofreire.com)  
-  
-  
 ## License
   
-MIT License  
+MIT  
+
+## Copyrights
+  
+© 2018-2024 [Alexandre Bento Freire](https://www.a-bentofreire.com)  
